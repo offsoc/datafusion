@@ -528,6 +528,132 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datafusion-48-0-0">
+   DataFusion
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     48.0.0
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-varchar-sql-type-is-now-represented-as-utf8view-in-arrow">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       VARCHAR
+      </span>
+     </code>
+     SQL type is now represented as
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Utf8View
+      </span>
+     </code>
+     in Arrow.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listingoptions-default-for-collect-stat-changed-from-true-to-false">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ListingOptions
+      </span>
+     </code>
+     default for
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       collect_stat
+      </span>
+     </code>
+     changed from
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       true
+      </span>
+     </code>
+     to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       false
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#processing-fieldref-instead-of-datatype-for-user-defined-functions">
+     Processing
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       FieldRef
+      </span>
+     </code>
+     instead of
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataType
+      </span>
+     </code>
+     for user defined functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#physical-expression-return-field">
+     Physical Expression return
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Field
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fileformat-supports-filters-pushdown-replaced-with-filesource-try-pushdown-filters">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       FileFormat::supports_filters_pushdown
+      </span>
+     </code>
+     replaced with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       FileSource::try_pushdown_filters
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parquetexec-avroexec-csvexec-jsonexec-removed">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ParquetExec
+      </span>
+     </code>
+     ,
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AvroExec
+      </span>
+     </code>
+     ,
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CsvExec
+      </span>
+     </code>
+     ,
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       JsonExec
+      </span>
+     </code>
+     Removed
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#datafusion-47-0-0">
    DataFusion
    <code class="docutils literal notranslate">
@@ -574,22 +700,22 @@
      Removed Deprecated APIs
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filescanconfig-filescanconfigbuilder">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       FileScanConfig
+      </span>
+     </code>
+     –&gt;
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       FileScanConfigBuilder
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filescanconfig-filescanconfigbuilder">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     FileScanConfig
-    </span>
-   </code>
-   –&gt;
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     FileScanConfigBuilder
-    </span>
-   </code>
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#datafusion-46-0-0">
@@ -736,6 +862,117 @@
 -->
 <section id="upgrade-guides">
 <h1>Upgrade Guides<a class="headerlink" href="#upgrade-guides" title="Link to this heading">¶</a></h1>
+<section id="datafusion-48-0-0">
+<h2>DataFusion <code class="docutils literal notranslate"><span class="pre">48.0.0</span></code><a class="headerlink" href="#datafusion-48-0-0" title="Link to this heading">¶</a></h2>
+<section id="the-varchar-sql-type-is-now-represented-as-utf8view-in-arrow">
+<h3>The <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> SQL type is now represented as <code class="docutils literal notranslate"><span class="pre">Utf8View</span></code> in Arrow.<a class="headerlink" href="#the-varchar-sql-type-is-now-represented-as-utf8view-in-arrow" title="Link to this heading">¶</a></h3>
+<p>The mapping of the SQL <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> type has been changed from <code class="docutils literal notranslate"><span class="pre">Utf8</span></code> to <code class="docutils literal notranslate"><span class="pre">Utf8View</span></code>
+which improves performance for many string operations. You can read more about
+<code class="docutils literal notranslate"><span class="pre">Utf8View</span></code> in the <a class="reference external" href="https://datafusion.apache.org/blog/2024/09/13/string-view-german-style-strings-part-1/">DataFusion blog post on German-style strings</a></p>
+<p>This means that when you create a table with a <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> column, it will now use
+<code class="docutils literal notranslate"><span class="pre">Utf8View</span></code> as the underlying data type. For example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="n">my_column</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">);</span>
+<span class="mi">0</span><span class="w"> </span><span class="k">row</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">fetched</span><span class="p">.</span>
+<span class="n">Elapsed</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">001</span><span class="w"> </span><span class="n">seconds</span><span class="p">.</span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">DESCRIBE</span><span class="w"> </span><span class="n">my_table</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------------+-----------+-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">is_nullable</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+-----------+-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">my_column</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">Utf8View</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">YES</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+-----------+-------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">fetched</span><span class="p">.</span>
+<span class="n">Elapsed</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">000</span><span class="w"> </span><span class="n">seconds</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>You can restore the old behavior of using <code class="docutils literal notranslate"><span class="pre">Utf8</span></code> by changing the
+<code class="docutils literal notranslate"><span class="pre">datafusion.sql_parser.map_varchar_to_utf8view</span></code> configuration setting. For
+example</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">datafusion</span><span class="p">.</span><span class="n">sql_parser</span><span class="p">.</span><span class="n">map_varchar_to_utf8view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="mi">0</span><span class="w"> </span><span class="k">row</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">fetched</span><span class="p">.</span>
+<span class="n">Elapsed</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">001</span><span class="w"> </span><span class="n">seconds</span><span class="p">.</span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="n">my_column</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">);</span>
+<span class="mi">0</span><span class="w"> </span><span class="k">row</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">fetched</span><span class="p">.</span>
+<span class="n">Elapsed</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">014</span><span class="w"> </span><span class="n">seconds</span><span class="p">.</span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">DESCRIBE</span><span class="w"> </span><span class="n">my_table</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------------+-----------+-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">is_nullable</span><span class="w"> </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+-----------+-------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">my_column</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">Utf8</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">YES</span><span class="w">         </span><span class="o">|</span>
+<span class="o">+</span><span class="c1">-------------+-----------+-------------+</span>
+<span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">fetched</span><span class="p">.</span>
+<span class="n">Elapsed</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">004</span><span class="w"> </span><span class="n">seconds</span><span class="p">.</span>
+</pre></div>
+</div>
+</section>
+<section id="listingoptions-default-for-collect-stat-changed-from-true-to-false">
+<h3><code class="docutils literal notranslate"><span class="pre">ListingOptions</span></code> default for <code class="docutils literal notranslate"><span class="pre">collect_stat</span></code> changed from <code class="docutils literal notranslate"><span class="pre">true</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code><a class="headerlink" href="#listingoptions-default-for-collect-stat-changed-from-true-to-false" title="Link to this heading">¶</a></h3>
+<p>This makes it agree with the default for <code class="docutils literal notranslate"><span class="pre">SessionConfig</span></code>.
+Most users won’t be impacted by this change but if you were using <code class="docutils literal notranslate"><span class="pre">ListingOptions</span></code> directly
+and relied on the default value of <code class="docutils literal notranslate"><span class="pre">collect_stat</span></code> being <code class="docutils literal notranslate"><span class="pre">true</span></code>, you will need to
+explicitly set it to <code class="docutils literal notranslate"><span class="pre">true</span></code> in your code.</p>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">ListingOptions</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">Arc</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">ParquetFormat</span><span class="p">::</span><span class="n">default</span><span class="p">()))</span>
+<span class="w">    </span><span class="p">.</span><span class="n">with_collect_stat</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// other options</span>
+</pre></div>
+</div>
+</section>
+<section id="processing-fieldref-instead-of-datatype-for-user-defined-functions">
+<h3>Processing <code class="docutils literal notranslate"><span class="pre">FieldRef</span></code> instead of <code class="docutils literal notranslate"><span class="pre">DataType</span></code> for user defined functions<a class="headerlink" href="#processing-fieldref-instead-of-datatype-for-user-defined-functions" title="Link to this heading">¶</a></h3>
+<p>In order to support metadata handling and extension types, user defined functions are
+now switching to traits which use <code class="docutils literal notranslate"><span class="pre">FieldRef</span></code> rather than a <code class="docutils literal notranslate"><span class="pre">DataType</span></code> and nullability.
+This gives a single interface to both of these parameters and additionally allows
+access to metadata fields, which can be used for extension types.</p>
+<p>To upgrade structs which implement <code class="docutils literal notranslate"><span class="pre">ScalarUDFImpl</span></code>, if you have implemented
+<code class="docutils literal notranslate"><span class="pre">return_type_from_args</span></code> you need instead to implement <code class="docutils literal notranslate"><span class="pre">return_field_from_args</span></code>.
+If your functions do not need to handle metadata, this should be straightforward
+repackaging of the output data into a <code class="docutils literal notranslate"><span class="pre">FieldRef</span></code>. The name you specify on the
+field is not important. It will be overwritten during planning. <code class="docutils literal notranslate"><span class="pre">ReturnInfo</span></code>
+has been removed, so you will need to remove all references to it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ScalarFunctionArgs</span></code> now contains a field called <code class="docutils literal notranslate"><span class="pre">arg_fields</span></code>. You can use this
+to access the metadata associated with the columnar values during invocation.</p>
+<p>To upgrade user defined aggregate functions, there is now a function
+<code class="docutils literal notranslate"><span class="pre">return_field</span></code> that will allow you to specify both metadata and nullability of
+your function. You are not required to implement this if you do not need to
+handle metatdata.</p>
+<p>The largest change to aggregate functions happens in the accumulator arguments.
+Both the <code class="docutils literal notranslate"><span class="pre">AccumulatorArgs</span></code> and <code class="docutils literal notranslate"><span class="pre">StateFieldsArgs</span></code> now contain <code class="docutils literal notranslate"><span class="pre">FieldRef</span></code> rather
+than <code class="docutils literal notranslate"><span class="pre">DataType</span></code>.</p>
+<p>To upgrade window functions, <code class="docutils literal notranslate"><span class="pre">ExpressionArgs</span></code> now contains input fields instead
+of input data types. When setting these fields, the name of the field is
+not important since this gets overwritten during the planning stage. All you
+should need to do is wrap your existing data types in fields with nullability
+set depending on your use case.</p>
+</section>
+<section id="physical-expression-return-field">
+<h3>Physical Expression return <code class="docutils literal notranslate"><span class="pre">Field</span></code><a class="headerlink" href="#physical-expression-return-field" title="Link to this heading">¶</a></h3>
+<p>To support the changes to user defined functions processing metadata, the
+<code class="docutils literal notranslate"><span class="pre">PhysicalExpr</span></code> trait, which now must specify a return <code class="docutils literal notranslate"><span class="pre">Field</span></code> based on the input
+schema. To upgrade structs which implement <code class="docutils literal notranslate"><span class="pre">PhysicalExpr</span></code> you need to implement
+the <code class="docutils literal notranslate"><span class="pre">return_field</span></code> function. There are numerous examples in the <code class="docutils literal notranslate"><span class="pre">physical-expr</span></code>
+crate.</p>
+</section>
+<section id="fileformat-supports-filters-pushdown-replaced-with-filesource-try-pushdown-filters">
+<h3><code class="docutils literal notranslate"><span class="pre">FileFormat::supports_filters_pushdown</span></code> replaced with <code class="docutils literal notranslate"><span class="pre">FileSource::try_pushdown_filters</span></code><a class="headerlink" href="#fileformat-supports-filters-pushdown-replaced-with-filesource-try-pushdown-filters" title="Link to this heading">¶</a></h3>
+<p>To support more general filter pushdown, the <code class="docutils literal notranslate"><span class="pre">FileFormat::supports_filters_pushdown</span></code> was replaced with
+<code class="docutils literal notranslate"><span class="pre">FileSource::try_pushdown_filters</span></code>.
+If you implemented a custom <code class="docutils literal notranslate"><span class="pre">FileFormat</span></code> that uses a custom <code class="docutils literal notranslate"><span class="pre">FileSource</span></code> you will need to implement
+<code class="docutils literal notranslate"><span class="pre">FileSource::try_pushdown_filters</span></code>.
+See <code class="docutils literal notranslate"><span class="pre">ParquetSource::try_pushdown_filters</span></code> for an example of how to implement this.</p>
+<p><code class="docutils literal notranslate"><span class="pre">FileFormat::supports_filters_pushdown</span></code> has been removed.</p>
+</section>
+<section id="parquetexec-avroexec-csvexec-jsonexec-removed">
+<h3><code class="docutils literal notranslate"><span class="pre">ParquetExec</span></code>, <code class="docutils literal notranslate"><span class="pre">AvroExec</span></code>, <code class="docutils literal notranslate"><span class="pre">CsvExec</span></code>, <code class="docutils literal notranslate"><span class="pre">JsonExec</span></code> Removed<a class="headerlink" href="#parquetexec-avroexec-csvexec-jsonexec-removed" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ParquetExec</span></code>, <code class="docutils literal notranslate"><span class="pre">AvroExec</span></code>, <code class="docutils literal notranslate"><span class="pre">CsvExec</span></code>, and <code class="docutils literal notranslate"><span class="pre">JsonExec</span></code> were deprecated in
+DataFusion 46 and are removed in DataFusion 48. This is sooner than the normal
+process described in the <a class="reference external" href="https://datafusion.apache.org/contributor-guide/api-health.html#deprecation-guidelines">API Deprecation Guidelines</a> because all the tests
+cover the new <code class="docutils literal notranslate"><span class="pre">DataSourceExec</span></code> rather than the older structures. As we evolve
+<code class="docutils literal notranslate"><span class="pre">DataSource</span></code>, the old structures began to show signs of “bit rotting” (not
+working but no one knows due to lack of test coverage).</p>
+</section>
+</section>
 <section id="datafusion-47-0-0">
 <h2>DataFusion <code class="docutils literal notranslate"><span class="pre">47.0.0</span></code><a class="headerlink" href="#datafusion-47-0-0" title="Link to this heading">¶</a></h2>
 <p>This section calls out some of the major changes in the <code class="docutils literal notranslate"><span class="pre">47.0.0</span></code> release of DataFusion.</p>
@@ -794,9 +1031,8 @@ previously or were hard to use correctly such as the multiple different
 <code class="docutils literal notranslate"><span class="pre">ScalarUDFImpl::invoke*</span></code> APIs. See <a class="reference external" href="https://github.com/apache/datafusion/pull/15130">#15130</a>, <a class="reference external" href="https://github.com/apache/datafusion/pull/15123">#15123</a>, and <a class="reference external" href="https://github.com/apache/datafusion/pull/15027">#15027</a> for more
 details.</p>
 </section>
-</section>
 <section id="filescanconfig-filescanconfigbuilder">
-<h2><code class="docutils literal notranslate"><span class="pre">FileScanConfig</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">FileScanConfigBuilder</span></code><a class="headerlink" href="#filescanconfig-filescanconfigbuilder" title="Link to this heading">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">FileScanConfig</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">FileScanConfigBuilder</span></code><a class="headerlink" href="#filescanconfig-filescanconfigbuilder" title="Link to this heading">¶</a></h3>
 <p>Previously, <code class="docutils literal notranslate"><span class="pre">FileScanConfig::build()</span></code> directly created ExecutionPlans. In
 DataFusion 47.0.0 this has been changed to use <code class="docutils literal notranslate"><span class="pre">FileScanConfigBuilder</span></code>. See
 <a class="reference external" href="https://github.com/apache/datafusion/pull/15352">#15352</a> for details.</p>
@@ -815,6 +1051,7 @@ DataFusion 47.0.0 this has been changed to use <code class="docutils literal not
 <span class="kd">let</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataSourceExec</span><span class="p">::</span><span class="n">from_data_source</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="datafusion-46-0-0">
 <h2>DataFusion <code class="docutils literal notranslate"><span class="pre">46.0.0</span></code><a class="headerlink" href="#datafusion-46-0-0" title="Link to this heading">¶</a></h2>
@@ -926,7 +1163,7 @@ the following must be changed:</p>
 <span class="c1">// Add filter</span>
 <span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">predicate</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logical_filter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">enable_parquet_pushdown</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">file_source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file_source</span><span class="p">.</span><span class="n">with_predicate</span><span class="p">(</span><span class="n">Arc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file_schema</span><span class="p">),</span><span class="w"> </span><span class="n">predicate</span><span class="p">);</span>
+<span class="w">        </span><span class="n">file_source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file_source</span><span class="p">.</span><span class="n">with_predicate</span><span class="p">(</span><span class="n">predicate</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 
